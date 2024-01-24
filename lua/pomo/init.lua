@@ -61,8 +61,8 @@ function M.pomoStop()
 end
 
 function M.setup(opts)
-  -- TODO: fix this, user opts not merging properly
   M.config = vim.tbl_deep_extend("force", default, opts or {})
+
   vim.api.nvim_create_user_command("PomoStart", "lua require('pomo').pomoStart()", {})
   vim.api.nvim_create_user_command("PomoCheck", "lua require('pomo').pomoCheck()", {})
   vim.api.nvim_create_user_command("PomoStop", "lua require('pomo').pomoStop()", {})
