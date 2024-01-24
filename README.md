@@ -15,9 +15,30 @@ via [lazy.nvim](https://github.com/folke/lazy.nvim):
     "PomoStop"
   },
   config = function()
-    require("pomo").setup()
+    require("pomo").setup({
+      -- config options go here --
+    })
   end
 }
+```
+
+## 🛠️ Configuration
+```lua
+-- Default config
+require("pomo").setup({
+  pomo_opts = {
+    taskTime = 25,
+    shortBreak = 5, -- or 10
+    longBreak = 25,
+  },
+  notify_opts = {
+    title = "Pomodoro Timer",
+    icon = "🍅",
+    render = "default", -- display style
+    stages = "fade_in_slide_out", -- animation style
+    timeout = 2500, -- time (in ms) popup stays on screen
+  }
+})
 ```
 
 ## ⚡ Usage
@@ -32,8 +53,7 @@ via [lazy.nvim](https://github.com/folke/lazy.nvim):
 :PomoStop
 ```
 
-## 📓 TODO
-- fix option for taking in user config/opts
+#### 📓 TODO
 - wait for user input on break time start?
   - or add command for manually starting break time
 - notify on long break
