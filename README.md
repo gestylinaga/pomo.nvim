@@ -40,20 +40,21 @@ require("pomo").setup({
   }
 })
 ```
+See [nvim-notify](https://github.com/rcarriga/nvim-notify) for full list of 
+notify options
 
 ## ⚡ Usage
+- Run `:PomoStart` to start the Pomodoro timer
+- The *break* timer will start automatically when the Pomodoro timer is done
+- Run `:PomoStart` again to start another interval
+- A *long break* will start automatically when 4 Pomodoro intervals have been
+completed
+- Run `:PomoCheck` anytime to see the remaining time on any timer
+- Run `:PomoStop` to stop the timer
+
+**Full Command List:**
 ```
-# To start Pomo timer
-:PomoStart
-
-# To check remaining time
-:PomoCheck
-
-# To stop Pomo timer
-:PomoStop
+:PomoStart # starts timer
+:PomoCheck # checks remaining time
+:PomoStop  # stops timer
 ```
-
-#### 📓 TODO
-- wait for user input on break time start?
-  - or add command for manually starting break time
-- notify on long break
