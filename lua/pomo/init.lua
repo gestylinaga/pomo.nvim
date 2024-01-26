@@ -23,14 +23,25 @@ local timer = vim.loop.new_timer()
 
 function M.breakStart()
   local breakTime = M.config.pomo_opts.shortBreak
-  if pomosDone >= 4 then
+
+  if pomosDone % 4 == 0 then
     breakTime = M.config.pomo_opts.longBreak
+    notify(pomosDone .. " Pomodoro intervals done! Time for a " .. breakTime .. " minute break!",
+      "default",
+      M.config.notify_opts
+    )
+  else
+    notify("Break time! Relax for " .. breakTime .. " minutes",
+      "default",
+      M.config.notify_opts
+    )
   end
 
-  notify("Break time! Relax for " .. breakTime .. " minutes", "default", M.config.notify_opts)
-
   timer:start(1000 * 60 * breakTime, 0, vim.schedule_wrap(function()
-    notify("Break time over, back to work!", "default", M.config.notify_opts)
+    notify("Break time over! Run :PomoStart to start the timer again",
+      "default",
+      M.config.notify_opts
+    )
   end))
 end
 
